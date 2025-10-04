@@ -15,8 +15,8 @@
     body {
       font-family: 'Google Sans', 'Roboto', sans-serif;
       overflow-x: hidden;
-      background: linear-gradient(to bottom, #f8fafc 0%, #e2e8f0 50%, #f8fafc 100%);
-      color: #1f2937;
+      background: linear-gradient(to bottom, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+      color: #f1f5f9;
       position: relative;
     }
     body::before {
@@ -26,65 +26,65 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 20% 80%, rgba(59,130,246,0.05) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 20%, rgba(16,185,129,0.05) 0%, transparent 50%);
+      background: radial-gradient(circle at 20% 80%, rgba(59,130,246,0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(16,185,129,0.08) 0%, transparent 50%);
       z-index: -2;
       pointer-events: none;
     }
     :root {
-      --google-blue: #60a5fa;
-      --google-green: #4ade80;
-      --google-yellow: #fde047;
-      --google-red: #f87171;
-      --light-bg: #f8fafc;
-      --lighter-bg: #ffffff;
-      --dark-text: #1f2937;
-      --medium-text: #6b7280;
-      --border-color: #d1d5db;
-      --gradient-primary: linear-gradient(135deg, var(--google-blue) 0%, #3b82f6 100%);
-      --gradient-secondary: linear-gradient(135deg, var(--google-green) 0%, #10b981 100%);
-      --gradient-accent: linear-gradient(135deg, var(--google-yellow) 0%, #f59e0b 100%);
-      --gradient-glow: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(16,185,129,0.1), rgba(245,158,11,0.1));
-      --navbar-gradient: linear-gradient(135deg, rgba(248,250,252,0.95), rgba(59,130,246,0.05), rgba(248,250,252,0.95));
-      --menu-item-glow: 0 0 12px rgba(59, 130, 246, 0.1);
-      --header-gradient: linear-gradient(135deg, rgba(248,250,252,0.95), rgba(59,130,246,0.05), rgba(248,250,252,0.95));
-      --footer-gradient: linear-gradient(135deg, rgba(248,250,252,0.95), rgba(16,185,129,0.05), rgba(248,250,252,0.95));
+      --google-blue: #3b82f6;
+      --google-green: #10b981;
+      --google-yellow: #f59e0b;
+      --google-red: #ef4444;
+      --dark-bg: #0f0f0f;
+      --darker-bg: #1a1a1a;
+      --light-text: #f1f5f9;
+      --medium-text: #a0a0a0;
+      --border-color: #374151;
+      --gradient-primary: linear-gradient(135deg, var(--google-blue) 0%, #1d4ed8 100%);
+      --gradient-secondary: linear-gradient(135deg, var(--google-green) 0%, #059669 100%);
+      --gradient-accent: linear-gradient(135deg, var(--google-yellow) 0%, #d97706 100%);
+      --gradient-glow: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(16,185,129,0.15), rgba(245,158,11,0.15));
+      --navbar-gradient: linear-gradient(135deg, rgba(15,15,15,0.95), rgba(59,130,246,0.08), rgba(15,15,15,0.95));
+      --menu-item-glow: 0 0 12px rgba(59, 130, 246, 0.15);
+      --header-gradient: linear-gradient(135deg, rgba(15,15,15,0.95), rgba(59,130,246,0.08), rgba(15,15,15,0.95));
+      --footer-gradient: linear-gradient(135deg, rgba(15,15,15,0.95), rgba(16,185,129,0.08), rgba(15,15,15,0.95));
     }
     .primary-bg {
-      background: var(--light-bg);
-      color: var(--dark-text);
+      background: var(--dark-bg);
+      color: var(--light-text);
     }
     .accent-blue { color: var(--google-blue); }
     .accent-green { color: var(--google-green); }
     .accent-yellow { color: var(--google-yellow); }
     .secondary-bg {
-      background-color: var(--lighter-bg);
+      background-color: var(--darker-bg);
     }
     .hero-bg {
       background: var(--gradient-primary), 
                   url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center/cover fixed;
-      background-blend-mode: soft-light;
+      background-blend-mode: multiply;
       position: relative;
     }
     .hero-overlay {
-      background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.95) 98%, rgba(255,255,255,0.7) 100%);
+      background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.95) 98%, rgba(0,0,0,0.8) 100%);
       position: absolute;
       inset: 0;
     }
     .hero-bg h2, .hero-bg p {
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
     }
     .header-top {
       background: var(--header-gradient);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-color);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
     .navbar-bg {
       background: var(--navbar-gradient);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-color);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
     }
     .btn-primary {
       background: var(--gradient-primary);
@@ -92,9 +92,9 @@
       position: relative;
       overflow: hidden;
       border: none;
-      color: #000;
+      color: #ffffff;
       font-weight: 500;
-      box-shadow: 0 4px 12px rgba(59,130,246,0.15);
+      box-shadow: 0 4px 12px rgba(59,130,246,0.3);
     }
     .btn-primary::before {
       content: '';
@@ -103,7 +103,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
       transition: left 0.6s;
     }
     .btn-primary:hover::before {
@@ -111,15 +111,15 @@
     }
     .btn-primary:hover {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.25);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
     }
     .card-hover {
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
       border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      background: var(--lighter-bg);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      background: var(--darker-bg);
       border: 1px solid var(--border-color);
     }
     .card-hover::before {
@@ -137,11 +137,11 @@
       border-radius: 20px;
     }
     .card-hover:hover::before {
-      opacity: 0.3;
+      opacity: 0.4;
     }
     .card-hover:hover {
       transform: translateY(-12px) rotateX(2deg);
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
     }
     .card-hover:hover .card-image {
       transform: scale(1.1) rotate(1deg);
@@ -168,8 +168,8 @@
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
     @keyframes glowPulse {
-      0%, 100% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.2); }
-      50% { box-shadow: 0 0 24px rgba(59, 130, 246, 0.4); }
+      0%, 100% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.3); }
+      50% { box-shadow: 0 0 24px rgba(59, 130, 246, 0.5); }
     }
     @keyframes typewriter {
       from { width: 0; }
@@ -215,10 +215,10 @@
 
     /* Section backgrounds */
     .section-bg-1 {
-      background: linear-gradient(135deg, var(--light-bg) 0%, #e2e8f0 100%);
+      background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1a1a 100%);
     }
     .section-bg-2 {
-      background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 100%);
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     }
 
     /* Footer */
@@ -266,11 +266,11 @@
 
     /* Business Description Section */
     .business-desc-section {
-      background: linear-gradient(135deg, rgba(59,130,246,0.05), rgba(16,185,129,0.05));
+      background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(16,185,129,0.08));
       border-radius: 24px;
       padding: 3.5rem;
       margin: 2rem 0;
-      border: 1px solid rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.15);
       position: relative;
       overflow: hidden;
     }
@@ -281,8 +281,8 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: radial-gradient(circle at 20% 50%, rgba(59,130,246,0.05) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 20%, rgba(16,185,129,0.05) 0%, transparent 50%);
+      background: radial-gradient(circle at 20% 50%, rgba(59,130,246,0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(16,185,129,0.08) 0%, transparent 50%);
       z-index: -1;
     }
     .desc-title {
@@ -305,7 +305,7 @@
     .desc-content {
       font-size: 1.1rem;
       line-height: 1.8;
-      color: var(--dark-text);
+      color: var(--light-text);
       animation: fadeInUp 1s ease-out 0.4s both;
     }
     .desc-list {
@@ -317,7 +317,7 @@
       position: relative;
       padding-left: 2rem;
       animation: slideInRight 0.8s ease-out both;
-      color: var(--dark-text);
+      color: var(--light-text);
     }
     .desc-list li:nth-child(1) { animation-delay: 0.6s; }
     .desc-list li:nth-child(2) { animation-delay: 0.8s; }
@@ -340,7 +340,7 @@
       text-align: left;
     }
     .footer-column h4 {
-      color: var(--dark-text);
+      color: var(--light-text);
       margin-bottom: 1rem;
       font-weight: 600;
     }
@@ -386,7 +386,7 @@
       justify-content: center;
       width: 48px;
       height: 48px;
-      background: var(--lighter-bg);
+      background: var(--darker-bg);
       border-radius: 50%;
       transition: all 0.3s ease;
       border: 1px solid var(--border-color);
@@ -394,9 +394,9 @@
     }
     .social-icons a:hover {
       background: var(--gradient-primary);
-      color: #000;
+      color: #ffffff;
       transform: translateY(-2px) scale(1.1);
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
     }
     .social-icons svg {
       width: 24px;
@@ -420,39 +420,39 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(59,130,246,0.05);
+      background: rgba(59,130,246,0.1);
       padding: 0.5rem 1rem;
       border-radius: 20px;
-      border: 1px solid rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.2);
       transition: all 0.3s ease;
       text-decoration: none;
       color: inherit;
     }
     .header-contact:hover {
-      background: rgba(59,130,246,0.1);
+      background: rgba(59,130,246,0.2);
       transform: scale(1.02);
-      box-shadow: 0 2px 8px rgba(59,130,246,0.15);
+      box-shadow: 0 2px 8px rgba(59,130,246,0.2);
     }
     .header-search {
       position: relative;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(16,185,129,0.05);
+      background: rgba(16,185,129,0.1);
       padding: 0.5rem 1rem;
       border-radius: 20px;
-      border: 1px solid rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.2);
       transition: all 0.3s ease;
     }
     .header-search:hover {
-      background: rgba(16,185,129,0.1);
+      background: rgba(16,185,129,0.2);
       transform: scale(1.02);
-      box-shadow: 0 2px 8px rgba(16,185,129,0.15);
+      box-shadow: 0 2px 8px rgba(16,185,129,0.2);
     }
     .header-search input {
       background: transparent;
       border: none;
-      color: var(--dark-text);
+      color: var(--light-text);
       outline: none;
       width: 150px;
     }
@@ -469,7 +469,7 @@
       justify-content: center;
       width: 40px;
       height: 40px;
-      background: var(--lighter-bg);
+      background: var(--darker-bg);
       border-radius: 50%;
       transition: all 0.3s ease;
       border: 1px solid var(--border-color);
@@ -477,9 +477,9 @@
     }
     .header-action-btn:hover {
       background: var(--gradient-accent);
-      color: #000;
+      color: #ffffff;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
     }
     .navbar-menu {
       display: flex;
@@ -500,10 +500,10 @@
       font-weight: 500;
     }
     .navbar-item:hover {
-      background: rgba(59,130,246,0.05);
+      background: rgba(59,130,246,0.1);
       color: var(--google-blue);
       transform: translateY(-1px);
-      box-shadow: 0 2px 8px rgba(59,130,246,0.1);
+      box-shadow: 0 2px 8px rgba(59,130,246,0.15);
     }
     .navbar-item::after {
       content: '';
@@ -574,7 +574,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.5l1.5 5 5-1.5-1.5 5H19a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5z"/>
             </svg>
-            <span class="text-sm text-dark-text">+91 9721303258</span>
+            <span class="text-sm text-light-text">+91 9721303258</span>
           </a>
           <div class="header-search">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -617,7 +617,7 @@
         </a>
       </div>
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-lighter-bg border-t border-border-color py-4 px-4 space-y-2 z-50">
+      <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-darker-bg border-t border-border-color py-4 px-4 space-y-2 z-50">
         <a href="#home" class="block navbar-item w-full text-left">🏠 Home</a>
         <a href="#products" class="block navbar-item w-full text-left">🔧 Products</a>
         <a href="#about" class="block navbar-item w-full text-left">📋 About</a>
@@ -665,7 +665,7 @@
           <div class="animate-slide-right md:pl-8">
             <div class="relative">
               <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="HVAC Manufacturing Excellence" class="rounded-xl shadow-2xl w-full h-64 object-cover glow-pulse">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-xl"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
             </div>
           </div>
         </div>
@@ -676,7 +676,7 @@
 <!-- Products Section -->
 <section id="products" class="section-bg-2 py-20 md:py-24 relative">
   <div class="container mx-auto px-4 md:px-6">
-    <h3 class="text-3xl md:text-4xl font-bold text-dark-text text-center mb-12 md:mb-16 animate-slide-down accent-green">Our Product Portfolio</h3>
+    <h3 class="text-3xl md:text-4xl font-bold text-light-text text-center mb-12 md:mb-16 animate-slide-down accent-green">Our Product Portfolio</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
       
       <!-- Suction Guide -->
@@ -688,14 +688,14 @@
                  alt="Suction Guide" 
                  class="card-image w-full h-full object-cover transition-transform duration-500 block"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-500 hidden z-10 rounded-t-2xl">
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-800 text-gray-400 hidden z-10 rounded-t-2xl">
               Image not available
             </div>
           </div>
           <div class="p-6 relative z-10">
-            <h4 class="text-xl font-semibold text-dark-text mb-3 accent-blue">Suction Guide</h4>
+            <h4 class="text-xl font-semibold text-light-text mb-3 accent-blue">Suction Guide</h4>
             <p class="text-medium-text mb-6">Essential for efficient fluid management systems.</p>
-            <button class="w-full btn-primary text-black font-medium py-2 rounded-lg transition-all relative z-20">
+            <button class="w-full btn-primary text-white font-medium py-2 rounded-lg transition-all relative z-20">
               Learn More
             </button>
           </div>
@@ -711,14 +711,14 @@
                  alt="Pressure Vessel" 
                  class="card-image w-full h-full object-cover transition-transform duration-500 block"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-500 hidden z-10 rounded-t-2xl">
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-800 text-gray-400 hidden z-10 rounded-t-2xl">
               Image not available
             </div>
           </div>
           <div class="p-6 relative z-10">
-            <h4 class="text-xl font-semibold text-dark-text mb-3 accent-green">Pressure Vessel</h4>
+            <h4 class="text-xl font-semibold text-light-text mb-3 accent-green">Pressure Vessel</h4>
             <p class="text-medium-text mb-6">Built for durability and safety under pressure.</p>
-            <button class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-black font-medium py-2 rounded-lg transition-all relative z-20">
+            <button class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium py-2 rounded-lg transition-all relative z-20">
               Learn More
             </button>
           </div>
@@ -734,14 +734,14 @@
                  alt="Hot Water Generator" 
                  class="card-image w-full h-full object-cover transition-transform duration-500 block"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-500 hidden z-10 rounded-t-2xl">
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-800 text-gray-400 hidden z-10 rounded-t-2xl">
               Image not available
             </div>
           </div>
           <div class="p-6 relative z-10">
-            <h4 class="text-xl font-semibold text-dark-text mb-3 accent-yellow">Hot Water Generator</h4>
+            <h4 class="text-xl font-semibold text-light-text mb-3 accent-yellow">Hot Water Generator</h4>
             <p class="text-medium-text mb-6">Reliable and energy-efficient heating solutions.</p>
-            <button class="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-medium py-2 rounded-lg transition-all relative z-20">
+            <button class="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white font-medium py-2 rounded-lg transition-all relative z-20">
               Learn More
             </button>
           </div>
@@ -757,14 +757,14 @@
                  alt="Valve Kit" 
                  class="card-image w-full h-full object-cover transition-transform duration-500 block"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-500 hidden z-10 rounded-t-2xl">
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-800 text-gray-400 hidden z-10 rounded-t-2xl">
               Image not available
             </div>
           </div>
           <div class="p-6 relative z-10">
-            <h4 class="text-xl font-semibold text-dark-text mb-3 accent-blue">Valve Kit</h4>
+            <h4 class="text-xl font-semibold text-light-text mb-3 accent-blue">Valve Kit</h4>
             <p class="text-medium-text mb-6">Complete sets for seamless valve operations.</p>
-            <button class="w-full btn-primary text-black font-medium py-2 rounded-lg transition-all relative z-20">
+            <button class="w-full btn-primary text-white font-medium py-2 rounded-lg transition-all relative z-20">
               Learn More
             </button>
           </div>
@@ -779,7 +779,7 @@
   <!-- Contact Section -->
   <section id="contact" class="py-20 md:py-24 secondary-bg relative">
     <div class="container mx-auto px-4 md:px-6 text-center">
-      <h3 class="text-3xl md:text-4xl font-bold text-dark-text mb-6 animate-slide-down accent-yellow contact-glow">Let's Connect</h3>
+      <h3 class="text-3xl md:text-4xl font-bold text-light-text mb-6 animate-slide-down accent-yellow contact-glow">Let's Connect</h3>
       <p class="text-medium-text text-lg max-w-2xl mx-auto mb-8 md:mb-12 animate-fade-in-up stagger-1">
         <span class="contact-typewriter">Ready for expert solutions? Contact us for a consultation.</span>
       </p>
@@ -949,7 +949,7 @@
       if (window.scrollY > 50) {
         header.style.background = 'var(--navbar-gradient)';
       } else {
-        header.style.background = 'rgba(248, 250, 252, 0.8)';
+        header.style.background = 'rgba(15, 15, 15, 0.8)';
       }
     });
   </script>
