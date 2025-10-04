@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Koolvent Technologies - Precision Engineering Solutions</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Google Sans', 'Roboto', sans-serif;
+      overflow-x: hidden;
+      background: linear-gradient(to bottom, #f8fafc 0%, #e2e8f0 50%, #f8fafc 100%);
+      color: #1f2937;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 80%, rgba(59,130,246,0.05) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(16,185,129,0.05) 0%, transparent 50%);
+      z-index: -2;
+      pointer-events: none;
+    }
+    :root {
+      --google-blue: #60a5fa;
+      --google-green: #4ade80;
+      --google-yellow: #fde047;
+      --google-red: #f87171;
+      --light-bg: #f8fafc;
+      --lighter-bg: #ffffff;
+      --dark-text: #1f2937;
+      --medium-text: #6b7280;
+      --border-color: #d1d5db;
+      --gradient-primary: linear-gradient(135deg, var(--google-blue) 0%, #3b82f6 100%);
+      --gradient-secondary: linear-gradient(135deg, var(--google-green) 0%, #10b981 100%);
+      --gradient-accent: linear-gradient(135deg, var(--google-yellow) 0%, #f59e0b 100%);
+      --gradient-glow: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(16,185,129,0.1), rgba(245,158,11,0.1));
+      --navbar-gradient: linear-gradient(135deg, rgba(248,250,252,0.95), rgba(59,130,246,0.05), rgba(248,250,252,0.95));
+      --menu-item-glow: 0 0 12px rgba(59, 130, 246, 0.1);
+      --header-gradient: linear-gradient(135deg, rgba(248,250,252,0.95), rgba(59,130,246,0.05), rgba(248,250,252,0.95));
+      --footer-gradient: linear-gradient(135deg, rgba(248,250,252,0.95), rgba(16,185,129,0.05), rgba(248,250,252,0.95));
+    }
+    .primary-bg {
+      background: var(--light-bg);
+      color: var(--dark-text);
+    }
+    .accent-blue { color: var(--google-blue); }
+    .accent-green { color: var(--google-green); }
+    .accent-yellow { color: var(--google-yellow); }
+    .secondary-bg {
+      background-color: var(--lighter-bg);
+    }
+    .hero-bg {
+      background: var(--gradient-primary), 
+                  url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center/cover fixed;
+      background-blend-mode: soft-light;
+      position: relative;
+    }
+    .hero-overlay {
+      background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.95) 98%, rgba(255,255,255,0.7) 100%);
+      position: absolute;
+      inset: 0;
+    }
+    .hero-bg h2, .hero-bg p {
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    }
+    .header-top {
+      background: var(--header-gradient);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .navbar-bg {
+      background: var(--navbar-gradient);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .btn-primary {
+      background: var(--gradient-primary);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      border: none;
+      color: #000;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(59,130,246,0.15);
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.6s;
+    }
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.25);
+    }
+    .card-hover {
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      background: var(--lighter-bg);
+      border: 1px solid var(--border-color);
+    }
+    .card-hover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--gradient-glow);
+      opacity: 0;
+      transition: opacity 0.4s;
+      z-index: 1;
+      pointer-events: none;
+      border-radius: 20px;
+    }
+    .card-hover:hover::before {
+      opacity: 0.3;
+    }
+    .card-hover:hover {
+      transform: translateY(-12px) rotateX(2deg);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+    }
+    .card-hover:hover .card-image {
+      transform: scale(1.1) rotate(1deg);
+    }
+    /* Animations */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(50px) scale(0.95); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes slideInLeft {
+      0% { opacity: 0; transform: translateX(-80px) skewX(10deg); }
+      100% { opacity: 1; transform: translateX(0) skewX(0); }
+    }
+    @keyframes slideInRight {
+      0% { opacity: 0; transform: translateX(80px) skewX(-10deg); }
+      100% { opacity: 1; transform: translateX(0) skewX(0); }
+    }
+    @keyframes slideInDown {
+      0% { opacity: 0; transform: translateY(-60px) scale(0.9); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes slideInUp {
+      0% { opacity: 0; transform: translateY(60px) scale(1.05); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.2); }
+      50% { box-shadow: 0 0 24px rgba(59, 130, 246, 0.4); }
+    }
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      0%, 50% { border-color: transparent; }
+      51%, 100% { border-color: var(--google-blue); }
+    }
+    .animate-fade-in-up { animation: fadeInUp 1.2s ease-out forwards; }
+    .animate-slide-left { animation: slideInLeft 0.9s ease-out forwards; }
+    .animate-slide-right { animation: slideInRight 0.9s ease-out forwards; }
+    .animate-slide-down { animation: slideInDown 0.9s ease-out forwards; }
+    .animate-slide-up { animation: slideInUp 0.9s ease-out forwards; }
+    .glow-pulse { animation: glowPulse 2s ease-in-out infinite; }
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid var(--google-blue);
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typewriter 3s steps(40) infinite, blink 0.75s step-end infinite;
+    }
+
+    /* Parallax */
+    .parallax-section {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .parallax-element {
+      transition: transform 0.1s ease-out;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Section backgrounds */
+    .section-bg-1 {
+      background: linear-gradient(135deg, var(--light-bg) 0%, #e2e8f0 100%);
+    }
+    .section-bg-2 {
+      background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 100%);
+    }
+
+    /* Footer */
+    .footer-bg {
+      background: var(--footer-gradient);
+      border-top: 1px solid var(--border-color);
+      color: var(--medium-text);
+    }
+
+    /* Logo animation */
+    .logo-float {
+      animation: subtle-float 6s ease-in-out infinite;
+    }
+    @keyframes subtle-float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(2deg); }
+    }
+
+    /* Particle effect */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--google-blue);
+      border-radius: 50%;
+      animation: particleFloat 8s linear infinite;
+    }
+    .particle:nth-child(even) { background: var(--google-green); animation-delay: -4s; }
+    .particle:nth-child(3n) { background: var(--google-yellow); animation-delay: -2s; }
+    @keyframes particleFloat {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+
+    /* Business Description Section */
+    .business-desc-section {
+      background: linear-gradient(135deg, rgba(59,130,246,0.05), rgba(16,185,129,0.05));
+      border-radius: 24px;
+      padding: 3.5rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(59,130,246,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .business-desc-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(59,130,246,0.05) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(16,185,129,0.05) 0%, transparent 50%);
+      z-index: -1;
+    }
+    .desc-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, var(--google-blue), var(--google-green), var(--google-yellow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideInDown 1s ease-out;
+    }
+    .desc-subtitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--google-blue);
+      margin-bottom: 1.5rem;
+      animation: slideInLeft 1s ease-out 0.2s both;
+    }
+    .desc-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--dark-text);
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+    .desc-list {
+      list-style: none;
+      padding: 0;
+    }
+    .desc-list li {
+      padding: 0.5rem 0;
+      position: relative;
+      padding-left: 2rem;
+      animation: slideInRight 0.8s ease-out both;
+      color: var(--dark-text);
+    }
+    .desc-list li:nth-child(1) { animation-delay: 0.6s; }
+    .desc-list li:nth-child(2) { animation-delay: 0.8s; }
+    .desc-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--google-green);
+      font-weight: bold;
+    }
+
+    /* Footer Enhancements */
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-column {
+      text-align: left;
+    }
+    .footer-column h4 {
+      color: var(--dark-text);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-column ul li {
+      margin-bottom: 0.5rem;
+      transition: color 0.3s ease;
+    }
+    .footer-column ul li a {
+      color: var(--medium-text);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+    }
+    .footer-column ul li a:hover {
+      color: var(--google-blue);
+      transform: translateX(5px);
+    }
+    .footer-column ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-secondary);
+      transition: width 0.3s ease;
+    }
+    .footer-column ul li a:hover::after {
+      width: 100%;
+    }
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: var(--lighter-bg);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+      color: var(--medium-text);
+    }
+    .social-icons a:hover {
+      background: var(--gradient-primary);
+      color: #000;
+      transform: translateY(-2px) scale(1.1);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    }
+    .social-icons svg {
+      width: 24px;
+      height: 24px;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--medium-text);
+      font-size: 0.875rem;
+    }
+
+    /* Header Enhancements */
+    .header-logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(59,130,246,0.05);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: 1px solid rgba(59,130,246,0.1);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .header-contact:hover {
+      background: rgba(59,130,246,0.1);
+      transform: scale(1.02);
+      box-shadow: 0 2px 8px rgba(59,130,246,0.15);
+    }
+    .header-search {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(16,185,129,0.05);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: 1px solid rgba(16,185,129,0.1);
+      transition: all 0.3s ease;
+    }
+    .header-search:hover {
+      background: rgba(16,185,129,0.1);
+      transform: scale(1.02);
+      box-shadow: 0 2px 8px rgba(16,185,129,0.15);
+    }
+    .header-search input {
+      background: transparent;
+      border: none;
+      color: var(--dark-text);
+      outline: none;
+      width: 150px;
+    }
+    .header-search input::placeholder {
+      color: var(--medium-text);
+    }
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+    }
+    .header-action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--lighter-bg);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+      color: var(--medium-text);
+    }
+    .header-action-btn:hover {
+      background: var(--gradient-accent);
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+    }
+    .navbar-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .navbar-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      background: transparent;
+      color: var(--medium-text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .navbar-item:hover {
+      background: rgba(59,130,246,0.05);
+      color: var(--google-blue);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(59,130,246,0.1);
+    }
+    .navbar-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    .navbar-item:hover::after {
+      width: 80%;
+    }
+    .mobile-header-actions {
+      display: flex;
+      gap: 1rem;
+    }
+    /* Contact Section Enhancements */
+    .contact-glow {
+      position: relative;
+    }
+    .contact-glow::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: var(--gradient-accent);
+      border-radius: 50%;
+      opacity: 0;
+      z-index: -1;
+      animation: glowPulse 3s ease-in-out infinite;
+      filter: blur(20px);
+    }
+    .contact-typewriter {
+      overflow: hidden;
+      border-right: .15em solid var(--google-yellow);
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typewriter 4s steps(60) 1s forwards, blink 0.75s step-end infinite;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body class="primary-bg">
+
+  <!-- Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Header Top Bar -->
+  <div class="header-top">
+    <div class="container mx-auto px-4 md:px-6 py-2">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-2">
+        <!-- Logo Section -->
+        <div class="header-logo-section">
+          <img src="koolvent.png" alt="Koolvent Technologies Logo" class="w-14 h-14 rounded-lg logo-float glow-pulse">
+          <div>
+            <h1 class="text-xl md:text-2xl font-extrabold accent-blue">KOOLVENT TECHNOLOGIES</h1>
+            <p class="text-xs text-medium-text">GST : xxxxxxx</p>
+          </div>
+        </div>
+        <!-- Desktop Actions -->
+        <div class="hidden md:flex header-actions">
+          <a href="tel:+91 9721303258" class="header-contact">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.5l1.5 5 5-1.5-1.5 5H19a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5z"/>
+            </svg>
+            <span class="text-sm text-dark-text">+91 9721303258</span>
+          </a>
+          <div class="header-search">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <input type="text" placeholder="Search products..." class="text-sm">
+          </div>
+          <a href="#" class="header-action-btn glow-pulse">🛒</a>
+          <a href="#" class="header-action-btn glow-pulse">👤</a>
+        </div>
+        <!-- Mobile Actions -->
+        <div class="flex md:hidden mobile-header-actions">
+          <button id="mobile-menu-button" class="header-action-btn">
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          <a href="#" class="header-action-btn">🔍</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar-bg">
+    <div class="container mx-auto px-4 md:px-6 flex items-center justify-center h-12 md:h-16">
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex navbar-menu">
+        <a href="#home" class="navbar-item glow-pulse">
+          <span>🏠 Home</span>
+        </a>
+        <a href="#products" class="navbar-item glow-pulse">
+          <span>🔧 Products</span>
+        </a>
+        <a href="#about" class="navbar-item glow-pulse">
+          <span>📋 About</span>
+        </a>
+        <a href="#contact" class="navbar-item glow-pulse">
+          <span>📞 Contact</span>
+        </a>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-lighter-bg border-t border-border-color py-4 px-4 space-y-2 z-50">
+        <a href="#home" class="block navbar-item w-full text-left">🏠 Home</a>
+        <a href="#products" class="block navbar-item w-full text-left">🔧 Products</a>
+        <a href="#about" class="block navbar-item w-full text-left">📋 About</a>
+        <a href="#contact" class="block navbar-item w-full text-left">📞 Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-bg py-24 md:py-40 text-center text-white relative overflow-hidden parallax-section parallax-element">
+    <div class="hero-overlay"></div>
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+      <h2 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up glow-pulse">Precision Engineering Solutions</h2>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 md:mb-12 text-white animate-slide-left stagger-1">Leading the way in manufacturing Suction Guides, Pressure Vessels, Hot Water Generators, and Valve Kits since 2025.</p>
+      <a href="#contact" class="inline-block btn-primary font-semibold py-3 px-8 md:py-4 md:px-10 rounded-xl text-sm md:text-base shadow-lg animate-slide-right stagger-2 glow-pulse">
+        Get Started
+      </a>
+    </div>
+  </section>
+
+  <!-- Business Description Section -->
+  <section class="py-20 md:py-24 section-bg-1 relative">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="business-desc-section animate-fade-in-up">
+        <div class="text-center mb-8">
+          <h3 class="desc-title">Unlocking Excellence in HVAC Innovation</h3>
+          <p class="text-medium-text text-lg max-w-3xl mx-auto">Discover how Koolvent Technologies is revolutionizing the industry with cutting-edge solutions.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="animate-slide-left">
+            <h4 class="desc-subtitle">Pioneering HVAC & Fluid Control Expertise</h4>
+            <p class="desc-content mb-6">
+              Established in the heart of Noida, India, in 2025, Koolvent Technologies emerges as a beacon of innovation in the HVAC (Heating, Ventilation, and Air Conditioning) and specialized fluid control domains. Our commitment to excellence drives us to craft high-quality, engineered components that power industrial, commercial, and monumental infrastructure projects worldwide.
+            </p>
+            <h4 class="desc-subtitle">Our Driving Mission</h4>
+            <p class="desc-content mb-6">
+              At the core of our operations lies a relentless pursuit: delivering reliable, certified, and high-performance products tailored to conquer the most demanding client challenges. From seamless fluid dynamics to optimal thermal regulation, we empower your visions with precision and reliability.
+            </p>
+            <ul class="desc-list">
+              <li>Advanced HVAC Systems for Sustainable Efficiency</li>
+              <li>Precision Fluid Control for Industrial Mastery</li>
+              <li>Custom Engineered Solutions for Global Scale</li>
+            </ul>
+          </div>
+          <div class="animate-slide-right md:pl-8">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="HVAC Manufacturing Excellence" class="rounded-xl shadow-2xl w-full h-64 object-cover glow-pulse">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-xl"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Products Section -->
+<section id="products" class="section-bg-2 py-20 md:py-24 relative">
+  <div class="container mx-auto px-4 md:px-6">
+    <h3 class="text-3xl md:text-4xl font-bold text-dark-text text-center mb-12 md:mb-16 animate-slide-down accent-green">Our Product Portfolio</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      
+      <!-- Suction Guide -->
+      <div class="card-hover animate-slide-left stagger-1">
+        <a href="/suction-guide.html" class="block">
+          <div class="relative overflow-hidden rounded-t-2xl h-48">
+            <img src="suction_guide.png" 
+                 loading="lazy" 
+                 alt="Suction Guide" 
+                 class="card-image w-full h-full object-cover transition-transform duration-500 block"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-500 hidden z-10 rounded-t-2xl">
+              Image not available
+            </div>
+          </div>
+          <div class="p-6 relative z-10">
+            <h4 class="text-xl font-semibold text-dark-text mb-3 accent-blue">Suction Guide</h4>
+            <p class="text-medium-text mb-6">Essential for efficient fluid management systems.</p>
+            <button class="w-full btn-primary text-black font-medium py-2 rounded-lg transition-all relative z-20">
+              Learn More
+            </button>
+          </div>
+        </a>
+      </div>
+
+      <!-- Pressure Vessel -->
+      <div class="card-hover animate-slide-right stagger-2">
+        <a href="/pressure-vessel.html" class="block">
+          <div class="relative overflow-hidden rounded-t-2xl h-48">
+            <img src="pressure_vessel.png" 
+                 loading="lazy" 
+                 alt="Pressure Vessel" 
+                 class="card-image w-full h-full object-cover transition-transform duration-500 block"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-500 hidden z-10 rounded-t-2xl">
+              Image not available
+            </div>
+          </div>
+          <div class="p-6 relative z-10">
+            <h4 class="text-xl font-semibold text-dark-text mb-3 accent-green">Pressure Vessel</h4>
+            <p class="text-medium-text mb-6">Built for durability and safety under pressure.</p>
+            <button class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-black font-medium py-2 rounded-lg transition-all relative z-20">
+              Learn More
+            </button>
+          </div>
+        </a>
+      </div>
+
+      <!-- Hot Water Generator -->
+      <div class="card-hover animate-slide-left stagger-3">
+        <a href="/hot-water-generator.html" class="block">
+          <div class="relative overflow-hidden rounded-t-2xl h-48">
+            <img src="hot_water_generator.png" 
+                 loading="lazy" 
+                 alt="Hot Water Generator" 
+                 class="card-image w-full h-full object-cover transition-transform duration-500 block"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-500 hidden z-10 rounded-t-2xl">
+              Image not available
+            </div>
+          </div>
+          <div class="p-6 relative z-10">
+            <h4 class="text-xl font-semibold text-dark-text mb-3 accent-yellow">Hot Water Generator</h4>
+            <p class="text-medium-text mb-6">Reliable and energy-efficient heating solutions.</p>
+            <button class="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-medium py-2 rounded-lg transition-all relative z-20">
+              Learn More
+            </button>
+          </div>
+        </a>
+      </div>
+
+      <!-- Valve Kit -->
+      <div class="card-hover animate-slide-right stagger-4">
+        <a href="/valve-kit.html" class="block">
+          <div class="relative overflow-hidden rounded-t-2xl h-48">
+            <img src="valve_kit.png" 
+                 loading="lazy" 
+                 alt="Valve Kit" 
+                 class="card-image w-full h-full object-cover transition-transform duration-500 block"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-500 hidden z-10 rounded-t-2xl">
+              Image not available
+            </div>
+          </div>
+          <div class="p-6 relative z-10">
+            <h4 class="text-xl font-semibold text-dark-text mb-3 accent-blue">Valve Kit</h4>
+            <p class="text-medium-text mb-6">Complete sets for seamless valve operations.</p>
+            <button class="w-full btn-primary text-black font-medium py-2 rounded-lg transition-all relative z-20">
+              Learn More
+            </button>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 md:py-24 secondary-bg relative">
+    <div class="container mx-auto px-4 md:px-6 text-center">
+      <h3 class="text-3xl md:text-4xl font-bold text-dark-text mb-6 animate-slide-down accent-yellow contact-glow">Let's Connect</h3>
+      <p class="text-medium-text text-lg max-w-2xl mx-auto mb-8 md:mb-12 animate-fade-in-up stagger-1">
+        <span class="contact-typewriter">Ready for expert solutions? Contact us for a consultation.</span>
+      </p>
+      <a href="/contact.html" class="inline-block btn-primary font-semibold py-3 px-8 rounded-xl text-base shadow-lg glow-pulse animate-slide-up stagger-2">
+        Send Message
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-bg py-12">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4 class="accent-blue">Koolvent Technologies</h4>
+          <p class="text-medium-text mb-4">Pioneering HVAC and fluid control solutions since 2025. Based in Noida, India, we deliver precision-engineered products for industrial excellence.</p>
+          <p class="text-sm text-medium-text">GST: 06BUEPB4342M1ZQ</p>
+        </div>
+        <div class="footer-column">
+          <h4 class="accent-green">Quick Links</h4>
+          <ul>
+            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#products">🔧 Products</a></li>
+            <li><a href="#about">📋 About Us</a></li>
+            <li><a href="#contact">📞 Contact</a></li>
+            <li><a href="/company-profile.html">👨‍💼 Company Profile</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="accent-yellow">Services & Support</h4>
+          <ul>
+            <li><a href="/quote.html">💰 Get a Quote</a></li>
+            <li><a href="/support.html">🛠️ Technical Support</a></li>
+            <li><a href="/careers.html">💼 Careers</a></li>
+            <li><a href="/blog.html">📖 Blog & Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="accent-blue">Connect With Us</h4>
+          <p class="text-medium-text mb-4">Stay updated with the latest in HVAC innovation.</p>
+          <div class="social-icons">
+            <a href="#" aria-label="LinkedIn" class="glow-pulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="glow-pulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.667-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="X" class="glow-pulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Email" class="glow-pulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Koolvent Technologies. All Rights Reserved. | Engineered with Precision & Passion</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Particles generation
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+        particle.style.opacity = Math.random() * 0.5 + 0.2;
+        particlesContainer.appendChild(particle);
+      }
+    }
+    createParticles();
+
+    // Mobile menu toggle
+    const btn = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    // Initial animation trigger
+    window.addEventListener('load', () => {
+      const animatedElements = document.querySelectorAll('.animate-fade-in-up, .animate-slide-left, .animate-slide-right, .animate-slide-down');
+      animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.animationPlayState = 'running';
+      });
+    });
+
+    // Scroll direction detection
+    let lastScrollY = window.scrollY;
+    let scrollDirection = 'down';
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.pageYOffset;
+      scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
+      lastScrollY = currentScrollY;
+    });
+
+    // Enhanced Intersection Observer for repeatable animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const target = entry.target;
+        if (entry.isIntersecting) {
+          target.style.opacity = '0';
+          target.style.transform = scrollDirection === 'down' ? 'translateY(40px)' : 'translateY(-40px)';
+          if (scrollDirection === 'down') {
+            target.classList.add('animate-fade-in-up', 'animate-slide-down');
+          } else {
+            target.classList.add('animate-slide-up');
+          }
+          if (target.classList.contains('stagger-1') || target.classList.contains('stagger-3')) {
+            target.classList.add('animate-slide-left');
+          } else if (target.classList.contains('stagger-2') || target.classList.contains('stagger-4')) {
+            target.classList.add('animate-slide-right');
+          }
+          target.style.animationPlayState = 'running';
+        } else {
+          target.classList.remove('animate-fade-in-up', 'animate-slide-left', 'animate-slide-right', 'animate-slide-down', 'animate-slide-up');
+          target.style.opacity = '1';
+          target.style.transform = '';
+          target.style.animationPlayState = 'paused';
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements
+    document.querySelectorAll('section[id], .card-hover, h2, p, .business-desc-section').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Enhanced Parallax
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallax = document.querySelector('.hero-bg');
+      const rate = scrolled * -1;
+      if (parallax) {
+        parallax.style.transform = `translateY(${rate}px)`;
+      }
+      const cards = document.querySelectorAll('.card-image-wrapper'); 
+      cards.forEach((card, index) => {
+        const cardRate = scrolled * (0.1 + (index * 0.02));
+        card.style.transform = `translateY(${cardRate}px)`;
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header .navbar-bg');
+      if (window.scrollY > 50) {
+        header.style.background = 'var(--navbar-gradient)';
+      } else {
+        header.style.background = 'rgba(248, 250, 252, 0.8)';
+      }
+    });
+  </script>
+</body>
+</html>
